@@ -809,18 +809,20 @@ div#pagewrap.admin div#content {
 .dokuwiki #dw__toc h3 strong > span {
 	display: none;
 }
-.dokuwiki #dw__toc h3.open strong,
-.dokuwiki #dw__toc h3.close strong {
+.dokuwiki #dw__toc h3 > strong {
     border-color: transparent;
+	border-width: 2em;
+	border: transparent solid 0.4em;
 }
 * html .dokuwiki #dw__toc h3.open strong,
-* html .dokuwiki #dw__toc h3.close strong {
+* html .dokuwiki #dw__toc h3.closed strong {
     border-color: #fff; /* fix MSIE 6 */
 }
 .dokuwiki #dw__toc h3.open strong {
     border-top-color: __text__ !important;
+    margin-top: 0.5em;
 }
-.dokuwiki #dw__toc h3 .close strong {
+.dokuwiki #dw__toc h3.closed strong {
     border-bottom-color: __text__ !important;
 }
 .dokuwiki #dw__toc > div {
