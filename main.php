@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main file of the "prsnl10" template for DokuWiki
+ * Main file of the "prsnl12" template for DokuWiki
  *
  *
  * LICENSE: This file is open source software (OSS) and may be copied under
@@ -10,7 +10,7 @@
  *
  * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
  * @author Andreas Haerter <ah@bitkollektiv.org>
- * @link http://www.dokuwiki.org/template:prsnl10
+ * @link http://www.dokuwiki.org/template:prsnl12
  * @link http://www.dokuwiki.org/devel:templates
  * @link http://www.dokuwiki.org/devel:coding_style
  * @link http://www.dokuwiki.org/devel:environment
@@ -99,7 +99,7 @@ if (file_exists(DOKU_TPLINC."user/apple-touch-icon.png")){
 }
 
 //load userdefined js?
-if (tpl_getConf("prsnl10_loaduserjs")){
+if (tpl_getConf("prsnl12_loaduserjs")){
     echo "<script type=\"text/javascript\" charset=\"utf-8\" src=\"".DOKU_TPL."user/user.js\"></script>\n";
 }
 ?>
@@ -146,18 +146,18 @@ if (tpl_getConf("prsnl10_loaduserjs")){
         <div id="tmpl_header_right">
             <?php
             //show header navigation?
-            if (tpl_getConf("prsnl10_headernav")){
+            if (tpl_getConf("prsnl12_headernav")){
                 echo "<div id=\"tmpl_header_nav\">\n                ";
                 //we have to show a custom navigation
                 if (empty($conf["useacl"]) ||
-                    auth_quickaclcheck(cleanID(tpl_getConf("prsnl10_headernav_location")))){ //current user got access?
+                    auth_quickaclcheck(cleanID(tpl_getConf("prsnl12_headernav_location")))){ //current user got access?
                     //get the rendered content of the defined wiki article to use as custom navigation
-                    $interim = tpl_include_page(tpl_getConf("prsnl10_headernav_location"), false);
+                    $interim = tpl_include_page(tpl_getConf("prsnl12_headernav_location"), false);
                     if ($interim === "" ||
                         $interim === false){
                         //show creation/edit link if the defined page got no content
                         echo "[&#160;";
-                        tpl_pagelink(tpl_getConf("prsnl10_headernav_location"), hsc($lang["prsnl10_fillplaceholder"]." (".tpl_getConf("prsnl10_headernav_location").")"));
+                        tpl_pagelink(tpl_getConf("prsnl12_headernav_location"), hsc($lang["prsnl12_fillplaceholder"]." (".tpl_getConf("prsnl12_headernav_location").")"));
                         echo "&#160;]<br />";
                     }else{
                        //show the rendered page content
@@ -228,7 +228,7 @@ tpl_content(false);
             <div id="tmpl_footer_actlinksright">
                 <?php
                 if (!empty($loginname) ||
-                    !tpl_getConf("prsnl10_hideadminlinksfromanon")){
+                    !tpl_getConf("prsnl12_hideadminlinksfromanon")){
                     echo "[&#160;";
                     tpl_actionlink("login"); //"login" handles both login/logout
                     if (!empty($INFO["writable"])){ //$INFO comes from DokuWiki core
@@ -272,11 +272,11 @@ tpl_content(false);
             </div>
             <div class="clearer"></div>
             <div id="tmpl_footer_metainfo">
-                <!-- You are NOT allowed to remove the following prsnl10 and/or DokuWiki link/notice. Please respect this! -->
-                <a href="http://andreas-haerter.com/" target="_blank">prsnl10</a> on <a href="http://www.dokuwiki.org/" target="_blank">DW</a> under the hood
+                <!-- You are NOT allowed to remove the following prsnl12 and/or DokuWiki link/notice. Please respect this! -->
+                <a href="http://andreas-haerter.com/" target="_blank">prsnl12</a> on <a href="http://www.dokuwiki.org/" target="_blank">DW</a> under the hood
                 <?php
                 if(!empty($INFO["exists"]) &&
-                   tpl_getConf("prsnl10_showpageinfo")) {
+                   tpl_getConf("prsnl12_showpageinfo")) {
                     echo " &#160;|&#160; ";
                     tpl_pageinfo();
                 }
@@ -285,16 +285,16 @@ tpl_content(false);
                     tpl_userinfo();
                 }
                 //additional footer content?
-                if (tpl_getConf("prsnl10_footer")){
+                if (tpl_getConf("prsnl12_footer")){
                     if (empty($conf["useacl"]) ||
-                        auth_quickaclcheck(cleanID(tpl_getConf("prsnl10_footer_location")))){ //current user got access?
+                        auth_quickaclcheck(cleanID(tpl_getConf("prsnl12_footer_location")))){ //current user got access?
                         //get the rendered content of the defined wiki article to use as custom content
-                        $interim = tpl_include_page(tpl_getConf("prsnl10_footer_location"), false);
+                        $interim = tpl_include_page(tpl_getConf("prsnl12_footer_location"), false);
                         if ($interim === "" ||
                             $interim === false){
                             //show creation/edit link if the defined page got no content
                             echo "<p>[&#160;";
-                            tpl_pagelink(tpl_getConf("prsnl10_footer_location"), hsc($lang["prsnl10_fillplaceholder"]." (".tpl_getConf("prsnl10_footer_location").")"));
+                            tpl_pagelink(tpl_getConf("prsnl12_footer_location"), hsc($lang["prsnl12_fillplaceholder"]." (".tpl_getConf("prsnl12_footer_location").")"));
                             echo "&#160;]</p>";
                         }else{
                             //show the rendered page content
@@ -306,20 +306,20 @@ tpl_content(false);
 
             </div><?php
             //copyright notice
-            if (tpl_getConf("prsnl10_copyright")){
+            if (tpl_getConf("prsnl12_copyright")){
                 echo "\n            <div id=\"licenseinfo\">\n                ";
-                if (tpl_getConf("prsnl10_copyright_default")){
+                if (tpl_getConf("prsnl12_copyright_default")){
                     tpl_license(false);
                 }else{
                     if (empty($conf["useacl"]) ||
-                        auth_quickaclcheck(cleanID(tpl_getConf("prsnl10_copyright_location")))){ //current user got access?
+                        auth_quickaclcheck(cleanID(tpl_getConf("prsnl12_copyright_location")))){ //current user got access?
                         //get the rendered content of the defined wiki article to use as custom notice
-                        $interim = tpl_include_page(tpl_getConf("prsnl10_copyright_location"), false);
+                        $interim = tpl_include_page(tpl_getConf("prsnl12_copyright_location"), false);
                         if ($interim === "" ||
                             $interim === false){
                             //show creation/edit link if the defined page got no content
                             echo "[&#160;";
-                            tpl_pagelink(tpl_getConf("prsnl10_copyright_location"), hsc($lang["prsnl10_fillplaceholder"]." (".tpl_getConf("prsnl10_copyright_location").")"));
+                            tpl_pagelink(tpl_getConf("prsnl12_copyright_location"), hsc($lang["prsnl12_fillplaceholder"]." (".tpl_getConf("prsnl12_copyright_location").")"));
                             echo "&#160;]<br />";
                         }else{
                             //show the rendered page content
